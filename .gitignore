@@ -1,37 +1,26 @@
-# Existing project patterns
+# Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Cloudflare Workers
+.wrangler
+.dev.vars
+.DS_Store
+
+# Python
+__pycache__
+venv
+*.pyc
+
+# Local Config
+.env
+.env.local
+*.local
+
+# Project Specific
 Profile.pdf
 *.pdf
 jobs_results.json
 jobs_report.md
-
-# Environment and local config
-.env
-.env.*
-!.env.example
-*.local
-.dev.vars
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.pytest_cache/
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Build and coverage
-coverage/
-dist/
-.build/
-
-# OS/editor
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
