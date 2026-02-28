@@ -38,3 +38,18 @@
 - Tratamento de erros aplicado: Nenhum
 - Bloqueios encontrados: Nenhum
 - Próximo item da fila: C01F01E02
+
+## 2026-02-28 — C01F01E02 (ABA JULES)
+- Item executado: **C01F01E02 · Mapa de endpoints do Worker**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/src/index.js`
+  - `worker/src/handlers/`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E02.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeamento detalhado das rotas do Cloudflare Worker (GET, POST e DELETE) e identificação dos respectivos handlers implementados.
+- Como foi validado: Inspeção direta no arquivo de roteamento `index.js` e na presença dos handlers em `src/handlers/`.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo item da fila: C01F01E03
