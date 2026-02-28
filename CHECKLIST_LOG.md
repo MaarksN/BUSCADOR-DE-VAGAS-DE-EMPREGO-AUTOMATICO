@@ -53,3 +53,21 @@
 - Tratamento de erros aplicado: N/A
 - Bloqueios encontrados: N/A
 - Próximo item da fila: C01F01E03
+
+## 2026-02-28 — C01F01E03 (ABA JULES)
+- Item executado: **C01F01E03 · Mapa de scrapers e fontes**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/src/scrapers/index.js`
+  - `worker/src/scrapers/catho.js`
+  - `worker/src/scrapers/gupy.js`
+  - `worker/src/scrapers/infojobs.js`
+  - `worker/src/scrapers/vagas.com.js`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E03.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeamento de todas as fontes de scrapers disponíveis. Identificadas 4 ativas (remotivo, arbeitnow, indeed, linkedin) e 4 placeholders (catho, gupy, infojobs, vagas.com).
+- Como foi validado: Leitura da lógica de roteamento em `index.js` e verificação do conteúdo de funções placeholders em arquivos stubs.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo item da fila: C01F01E04
