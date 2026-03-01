@@ -137,3 +137,85 @@
 - Como foi validado: Inspeção direta do `scraperMap` em `worker/src/scrapers/index.js`, conferência dos arquivos de scraper e comparação com `SITES` em `worker/src/config.js`.
 - Tratamento de erros aplicado: Não houve erro de path; divergência funcional registrada como gap técnico (4 fontes em placeholder e sem ligação no orquestrador).
 - Próximo passo: iniciar a Execução C02F01E04.
+
+## 2026-02-28 — C02F01E04 (ABA CODEX)
+- Item executado: **C02F01E04 · Mapa de scoring e ranking**.
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E04.md`.
+- Arquivos analisados/alterados:
+  - `worker/src/scoring/index.js`
+  - `worker/src/scoring/keywords.js`
+  - `worker/src/scoring/location.js`
+  - `worker/src/scoring/recency.js`
+  - `worker/src/scoring/salary.js`
+  - `worker/src/scoring/seniority.js`
+  - `worker/src/scoring/boosts.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi implementado/validado: Inventário completo dos módulos de scoring e do cálculo de ranking com breakdown.
+- Como foi validado: Leitura direta dos módulos `worker/src/scoring/*` e consolidação em evidência técnica.
+- Tratamento de erros aplicado: Sem erro técnico; sem gap crítico para escopo de mapeamento.
+- Próximo passo: iniciar a Execução C02F01E05.
+
+## 2026-02-28 — C02F01E05 (ABA CODEX)
+- Item executado: **C02F01E05 · Mapa de cache e rate limit**.
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E05.md`.
+- Arquivos analisados/alterados:
+  - `worker/src/cache/index.js`
+  - `worker/src/middleware/rateLimit.js`
+  - `worker/src/handlers/metrics.js`
+  - `worker/src/index.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi implementado/validado: Mapeamento dos mecanismos de cache KV, rate limit (KV + fallback memória) e integração no endpoint `/search`.
+- Como foi validado: Revisão prática dos módulos de cache/rate limit, roteador e handler de métricas.
+- Tratamento de erros aplicado: Sem erro técnico; sem gap crítico para escopo de mapeamento.
+- Próximo passo: iniciar a Execução C02F01E06.
+
+## 2026-02-28 — C02F01E06 (ABA CODEX)
+- Item executado: **C02F01E06 · Mapa de UI web**.
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E06.md`.
+- Arquivos analisados/alterados:
+  - `online-app/index.html`
+  - `online-app/app.js`
+  - `online-app/config.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi implementado/validado: Catálogo do fluxo da UI (configuração de Worker URL, busca, renderização, favoritos e persistência local).
+- Como foi validado: Inspeção direta dos arquivos de frontend e descrição objetiva em evidência.
+- Tratamento de erros aplicado: Sem erro técnico; sem gap crítico para escopo de mapeamento.
+- Próximo passo: iniciar a Execução C02F01E07.
+
+## 2026-02-28 — C02F01E07 (ABA CODEX)
+- Item executado: **C02F01E07 · Mapa de extensão Chrome**.
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E07.md`.
+- Arquivos analisados/alterados:
+  - `chrome-extension/manifest.json`
+  - `chrome-extension/popup.js`
+  - `chrome-extension/background.js`
+  - `chrome-extension/options.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi implementado/validado: Inventário dos componentes popup/background/options e permissões/integrações declaradas no manifest.
+- Como foi validado: Leitura de manifesto e scripts da extensão, com consolidação em evidência técnica.
+- Tratamento de erros aplicado: Sem erro técnico; sem gap crítico para escopo de mapeamento.
+- Próximo passo: iniciar a Execução C02F01E08.
+
+## 2026-02-28 — C02F01E08 (ABA CODEX)
+- Item executado: **C02F01E08 · Mapa de deploy e ambientes**.
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E08.md`.
+- Arquivos analisados/alterados:
+  - `DEPLOY.md`
+  - `worker/.env.example`
+  - `worker/wrangler.toml`
+  - `README.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi implementado/validado: Consolidação do fluxo de deploy e configuração de ambientes (wrangler, KV bindings, secrets e smoke checks).
+- Como foi validado: Revisão documental/técnica dos arquivos de deploy e variáveis de ambiente.
+- Tratamento de erros aplicado: Sem erro técnico; sem gap crítico para escopo de mapeamento.
+- Próximo passo: iniciar a Execução C02F01E09.
