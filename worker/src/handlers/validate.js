@@ -1,8 +1,10 @@
-import { validateSearchPayload } from './search.js';
+import { getRuntimeConfig } from '../config.js';
+import { validateSearchPayload } from '../services/searchService.js';
 import { withJson } from './shared.js';
 
-export async function handleValidate(request, _env, requestId) {
+export async function handleValidate(request, env, requestId) {
   const body = await request.json();
-  const errors = validateSearchPayload(body);
-  return withJson({ ok: errors.length === 0, errors }, errors.length ? 400 : 200, requestId);
+  const cfg = getRuntimeConfig(env);
+  const errors = validateSearchPayload(body, cfg.version);
+  return withJson({ ok: errors.length === 0, errors, schemaVersion: cfg.version }, errors.length ? 400 : 200, requestId);
 }
