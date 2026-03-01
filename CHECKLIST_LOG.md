@@ -157,3 +157,58 @@
 - Tratamento de erros aplicado: N/A
 - Bloqueios encontrados: N/A
 - Próximo passo: C01F01E09
+
+## 2026-02-28 — C01F01E09 (ABA JULES)
+- Item executado: **C01F01E09 · Mapa de testes existentes**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/package.json`
+  - `worker/src/__tests__/scoring.test.js`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E09.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeada a infraestrutura de testes em `vitest` baseada no mock global de `miniflare`. Identificado arquivo teste centralizando a verificação dos algoritmos de deduplicação e scoring.
+- Como foi validado: Inspeção do `package.json` para test runner e lectura e análise de assertions em `worker/src/__tests__/scoring.test.js`.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: Mapeado gap de cobertura para middlewares e handlers na documentação.
+- Próximo passo: C01F01E10
+
+## 2026-02-28 — C01F01E10 (ABA JULES)
+- Item executado: **C01F01E10 · Mapa de riscos e dívida**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `docs/governanca/EVIDENCIAS_C01_F01_E10.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeados os riscos sistêmicos e técnicos (scrapers bloqueáveis, validação de JSON insegura e manual, permissões de CORS frouxas sem `env` e acoplamento nos handlers de API).
+- Como foi validado: Revisão arquitetural com base no conhecimento do Ciclo 01 inteiro e análise dos arquivos do worker.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo passo: C01F02E01
+
+## 2026-02-28 — C01F02E01 (ABA JULES)
+- Item executado: **C01F02E01 · Contrato de payload (schemaVersion)**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/src/handlers/validate.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Implementada validação explícita de `schemaVersion` em `/validate`, devolvendo as versões no retorno das queries e acoplado com o config runtime.
+- Como foi validado: Edição no handler `validate.js` importando config runtime e inserindo regra de negócio de versionamento estrito de contrato de payload.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo passo: C01F02E02
+
+## 2026-02-28 — C01F02E02 (ABA JULES)
+- Item executado: **C01F02E02 · Separação de camadas**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/src/handlers/search.js`
+  - `worker/src/services/searchService.js` (criado)
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Refatorado o handler da busca de modo a extrair toda a lógica pesada e de negócio para o `searchService.js`. Deixando o handler isolado para orquestração (cache, retries de métricas, resposta HTTP).
+- Como foi validado: Manipulação de arquivo via write_file com a refatoração do JS.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo passo: Testar e Validar
