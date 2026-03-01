@@ -91,3 +91,20 @@
 - Tratamento de erros aplicado: N/A
 - Bloqueios encontrados: N/A
 - Próximo item da fila: C01F01E05
+
+## 2026-02-28 — C01F01E05 (ABA JULES)
+- Item executado: **C01F01E05 · Mapa de cache e rate limit**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/src/middleware/rateLimit.js`
+  - `worker/src/metrics/index.js`
+  - `worker/src/handlers/metrics.js`
+  - `worker/src/index.js`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E05.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Inventariadas as capacidades de resiliência e rate limit baseadas em KV para cache distribuído, com "fallback" robusto para mapa em memória. Mapeada a gestão de métricas do sistema e sua ligação de cache.
+- Como foi validado: Inspeção da lógica de cache/KV no middleware e nos utilitários de métricas, além de avaliar o acoplamento real de `checkRateLimit` com os endpoints e o header 429 gerado por `index.js`.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo item da fila: C01F01E06
