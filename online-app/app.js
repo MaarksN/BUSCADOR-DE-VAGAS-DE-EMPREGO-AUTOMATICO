@@ -4,7 +4,6 @@ const LAST_SUMMARY_KEY = 'jobfinder-last-summary-v1';
 const SEARCH_TIMEOUT_MS = 20000;
 const SEARCH_RETRY_LIMIT = 1;
 
-const STORAGE_KEY = 'buscador-vagas-online-v3';
 const HEALTH_CACHE_KEY = 'buscador-worker-health-cache-v1';
 const els = {
   apiUrl: $('apiUrl'), resumeText: $('resumeText'), location: $('location'), locations: $('locations'), maxResults: $('maxResults'), keywordLimit: $('keywordLimit'),
