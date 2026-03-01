@@ -13,7 +13,7 @@
 
 ## 2026-02-28 — C02F01E01 (ABA JULES)
 - Item executado: **C02F01E01 · Mapa de runtime e entrypoints**.
-- Tipo de ação: Validação do CODEX
+- Tipo de ação: **Validação do CODEX**.
 - Status: **🟡 → 🟢**.
 - Arquivos analisados:
   - `docs/governanca/EVIDENCIAS_C02_F01_E01.md`
@@ -21,23 +21,23 @@
   - `online-app/index.html`
   - `chrome-extension/manifest.json`
   - `job_finder.py`
-- O que foi validado: Validação de que os entrypoints existem e estão devidamente configurados no código.
-- Como foi validado: Verificação no checklist do worker, online-app, chrome-extension e script Python. Status aprovado e movido para verde.
+- O que foi validado: validação de que os entrypoints existem e estão devidamente configurados no código.
+- Como foi validado: verificação no checklist do worker, online-app, chrome-extension e script Python. Status aprovado e movido para verde.
 
 ## 2026-02-28 — C01F01E01 (ABA JULES)
 - Item executado: **C01F01E01 · Mapa de runtime e entrypoints**.
-- Tipo de ação: Execução própria
+- Tipo de ação: **Execução própria**.
 - Status: **🔴 → 🟡**.
 - Arquivos analisados:
   - `worker/src/index.js`
   - `online-app/index.html`
   - `chrome-extension/manifest.json`
   - `job_finder.py`
-- O que foi validado: Inventário técnico dos entrypoints para auditoria
-- Como foi validado: Inspeção dos arquivos que definem os entrypoints (JavaScript, manifest JSON, HTML).
-- Tratamento de erros aplicado: Nenhum
-- Bloqueios encontrados: Nenhum
-- Próximo item da fila: C01F01E02
+- O que foi validado: inventário técnico dos entrypoints para auditoria.
+- Como foi validado: inspeção dos arquivos que definem os entrypoints (JavaScript, manifest JSON, HTML).
+- Tratamento de erros aplicado: nenhum.
+- Bloqueios encontrados: nenhum.
+- Próximo item da fila: **C01F01E02**.
 
 ## 2026-02-28 — C01F01E01 (ABA CODEX)
 - Item executado: **C01F01E01 · Mapa de runtime e entrypoints**.
@@ -87,8 +87,8 @@
   - `worker/src/handlers/validate.js`
   - `worker/src/handlers/normalize.js`
   - `worker/src/handlers/favorites.js`
-- O que foi feito ou validado: Validação das evidências e mapeamento dos endpoints do worker listados no EVIDENCIAS_C02_F01_E02.md. Todos os endpoints apontados e handlers correspondentes existem no runtime real.
-- Como foi validado: Inspeção dos arquivos descritos em evidências.
+- O que foi feito ou validado: validação das evidências e do mapeamento dos endpoints do Worker listados em `EVIDENCIAS_C02_F01_E02.md`. Todos os endpoints apontados e handlers correspondentes existem no runtime real.
+- Como foi validado: inspeção dos arquivos descritos em evidências.
 - Tratamento de erros aplicado: nenhum.
 - Mensagem de commit sugerida: `type(docs): validação de C02F01E02 e atualização de checklist/log`
 - Próximo passo: **iniciar a Execução C01F01E02 (ABA JULES)**.
@@ -101,8 +101,8 @@
   - `worker/src/index.js`
   - `worker/src/handlers/*.js`
   - `docs/governanca/EVIDENCIAS_C01_F01_E02.md`
-- O que foi feito ou validado: Listar rotas e handlers em `worker/src/index.js` e `worker/src/handlers/`. Foi criado um arquivo de evidências mapendo as rotas GET, POST e DELETE implementadas no Worker.
-- Como foi validado: Inspeção dos arquivos listados na documentação e análise dos imports e matches de rotas em `worker/src/index.js`.
+- O que foi feito ou validado: listar rotas e handlers em `worker/src/index.js` e `worker/src/handlers/`. Foi criado um arquivo de evidências mapeando as rotas GET, POST e DELETE implementadas no Worker.
+- Como foi validado: inspeção dos arquivos listados na documentação e análise dos imports e matches de rotas em `worker/src/index.js`.
 - Tratamento de erros aplicado: nenhum.
 - Mensagem de commit sugerida: `docs(worker): adicionar mapa de endpoints para C01F01E02`
 - Próximo passo: **iniciar a Execução C01F01E03 (ABA JULES)**.
@@ -115,8 +115,8 @@
   - `worker/src/scrapers/index.js`
   - `worker/src/scrapers/*.js`
   - `docs/governanca/EVIDENCIAS_C01_F01_E03.md`
-- O que foi feito ou validado: Catalogação dos scrapers em `worker/src/scrapers` listando arquivos como catho, gupy, indeed, linkedin, infojobs, remotivo e arbeitnow. Orquestrador (`index.js`) e features (Dedupe, Timeout, Metrics) foram identificados.
-- Como foi validado: Inspeção dos arquivos listados.
+- O que foi feito ou validado: catalogação dos scrapers em `worker/src/scrapers`, listando arquivos como Catho, Gupy, Indeed, LinkedIn, Infojobs, Remotivo e Arbeitnow. O orquestrador (`index.js`) e features (Dedupe, Timeout, Metrics) também foram identificados.
+- Como foi validado: inspeção dos arquivos listados.
 - Tratamento de erros aplicado: nenhum.
 - Mensagem de commit sugerida: `docs(worker): adicionar mapa de scrapers para C01F01E03`
 - Próximo passo: **iniciar a Execução C01F01E04 (ABA JULES)**.
@@ -129,8 +129,8 @@
   - `worker/src/scoring/index.js`
   - `worker/src/scoring/*.js`
   - `docs/governanca/EVIDENCIAS_C01_F01_E04.md`
-- O que foi feito ou validado: Catalogação do sistema de scoring do projeto em `worker/src/scoring`. Verificado como a pontuação e ranking são orquestrados através dos arquivos `salary`, `seniority`, `recency`, `location`, `keywords` e `boosts`.
-- Como foi validado: Inspeção dos arquivos listados identificando os módulos implementados.
+- O que foi feito ou validado: catalogação do sistema de scoring do projeto em `worker/src/scoring`. Verificado como a pontuação e o ranking são orquestrados pelos arquivos `salary`, `seniority`, `recency`, `location`, `keywords` e `boosts`.
+- Como foi validado: inspeção dos arquivos listados, identificando os módulos implementados.
 - Tratamento de erros aplicado: nenhum.
 - Mensagem de commit sugerida: `docs(worker): adicionar mapa de scoring para C01F01E04`
 - Próximo passo: **iniciar a Execução C01F01E05 (ABA JULES)**.
@@ -144,8 +144,8 @@
   - `worker/src/handlers/metrics.js`
   - `worker/src/index.js`
   - `docs/governanca/EVIDENCIAS_C01_F01_E05.md`
-- O que foi feito ou validado: Catalogação do cache e do rate limit presente em `worker/src/middleware/rateLimit.js`, `worker/src/handlers/metrics.js` e sua integração com `worker/src/index.js` via Cloudflare KV.
-- Como foi validado: Inspeção dos arquivos listados identificando os middlewares e monitoramentos de requests (hits e rate limits).
+- O que foi feito ou validado: catalogação do cache e do rate limit presentes em `worker/src/middleware/rateLimit.js`, `worker/src/handlers/metrics.js` e sua integração com `worker/src/index.js` via Cloudflare KV.
+- Como foi validado: inspeção dos arquivos listados, identificando os middlewares e monitoramentos de requests (hits e rate limits).
 - Tratamento de erros aplicado: nenhum.
 - Mensagem de commit sugerida: `docs(worker): adicionar mapa de cache e rate limit para C01F01E05`
 - Próximo passo: **iniciar a Execução C01F01E06 (ABA JULES)**.
@@ -159,8 +159,8 @@
   - `online-app/config.js`
   - `online-app/index.html`
   - `docs/governanca/EVIDENCIAS_C01_F01_E06.md`
-- O que foi feito ou validado: Catalogação da interface web (UI) focando no fluxo de busca e favoritos descritos em `app.js` e `config.js`. Foi verificado o roteamento para API de search e o gerenciamento de estados.
-- Como foi validado: Inspeção dos arquivos listados identificando os fluxos e manipuladores de eventos da UI.
+- O que foi feito ou validado: catalogação da interface web (UI), focando no fluxo de busca e favoritos descritos em `app.js` e `config.js`. Foi verificado o roteamento para a API de search e o gerenciamento de estados.
+- Como foi validado: inspeção dos arquivos listados, identificando os fluxos e manipuladores de eventos da UI.
 - Tratamento de erros aplicado: nenhum.
 - Mensagem de commit sugerida: `docs(ui): adicionar mapa de UI web para C01F01E06`
 - Próximo passo: **iniciar a validação do pre-commit**.
