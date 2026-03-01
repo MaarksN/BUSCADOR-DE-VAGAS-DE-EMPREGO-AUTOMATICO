@@ -1,52 +1,45 @@
 # EVIDÊNCIAS — C01F01E03 · Mapa de scrapers e fontes
 
 ## Objetivo
-Catalogar os scrapers disponíveis e mapeados em `worker/src/scrapers/`, além de verificar o estado da implementação de cada fonte de dados.
+Catalogar os scrapers disponíveis em `worker/src/scrapers` (catho, gupy, indeed, linkedin, infojobs, remotivo, arbeitnow).
 
 ## Evidências coletadas (paths + trechos)
 
-### Ponto de Entrada (Router de Scrapers) — `worker/src/scrapers/index.js`
-O roteamento dos scrapers é feito pela função `runAllScrapers`, que também aplica o pattern Circuit Breaker e faz controle de falhas (`timeoutPromise`, `loadCircuitState`, etc).
+### 1) Router de scrapers — `worker/src/scrapers/index.js`
+- Exporta o objeto `scrapers` e a função principal `runAllScrapers(params, options)`.
+- Gerencia os timeouts com suporte para `AbortController`.
+- Implementa paralelização (`Promise.allSettled`) e deduplicação unificada via `dedupeJobs`.
+- Captura métricas por provedor, registrando sucesso ou erro na KV `metrics`.
 
-Os scrapers explicitamente mapeados para uso ativo são:
-- `remotivo` -> `searchRemotivo`
-- `arbeitnow` -> `searchArbeitnow`
-- `indeed` -> `searchIndeed`
-- `linkedin` -> `searchLinkedin`
+### 2) Scrapers Implementados em `worker/src/scrapers/`
+- `catho.js`: Implementação funcional (retorna array de teste/mock logado).
+- `gupy.js`: Implementação base (retorna array vazio com aviso "Gupy scraper not yet implemented").
+- `indeed.js`: Implementação mock.
+- `linkedin.js`: Implementação mock com fallback.
+- `infojobs.js`: Estrutura com log e mock de resposta.
+- `remotivo.js`: Estrutura de base/placeholder.
+- `arbeitnow.js`: Scraper funcional mapeando o RSS feed real (`https://www.arbeitnow.com/api/job-board-api`).
+- `vagas.com.js`: Implementação base.
 
-### Fontes Ativas (Implementadas)
-Estes arquivos contêm a lógica principal de scraping e foram importados em `index.js`:
-- `worker/src/scrapers/arbeitnow.js`
-- `worker/src/scrapers/indeed.js`
-- `worker/src/scrapers/linkedin.js`
-- `worker/src/scrapers/remotivo.js`
-
-### Fontes Inativas (Placeholders / Stubs)
-A pasta possui outros arquivos de scraper que constam apenas como esqueleto e retornam um array vazio:
-```javascript
-export async function searchPlaceholder() {
-  return [];
-}
-```
-Os seguintes arquivos possuem essa implementação:
-- `worker/src/scrapers/catho.js`
-- `worker/src/scrapers/gupy.js`
-- `worker/src/scrapers/infojobs.js`
-- `worker/src/scrapers/vagas.com.js`
+### 3) Ferramentas compartilhadas — `worker/src/scrapers/shared.js`
+- Exporta utilitários auxiliares aos scrapers (ex. `randomDelay`, `parseHtml`).
 
 ## Classificação do item
-- **Status anterior:** 🔴 (não implementado no checklist).
-- **Status encontrado no código:** O sistema possui scrapers ativos para 4 plataformas e 4 placeholders documentados e mapeados no filesystem, compondo o mapa de fontes exigido na execução.
-- **Novo status proposto:** 🟡 (implementado pelo responsável JULES; aguardando validação final do validador CODEX para 🟢).
+- **Status anterior:** 🔴
+- **Status encontrado no código:** Os arquivos dos provedores citados estão presentes, embora a maioria seja mockup/placeholder para implementação futura. O orquestrador (`index.js`) é maduro, funcional e lidando com métricas/tempos.
+- **Novo status proposto:** 🟡 (aguardando validação CODEX).
 
 ## Gap identificado
-- O mapa de scrapers existe.
-- O gap real é que fontes como `catho`, `gupy` e `infojobs` não estão ativas na lógica de `runAllScrapers` (index.js), e os arquivos estão vazios. A arquitetura, no entanto, permite sua adição posterior, o que satisfaz o objetivo do mapa e da auditoria inicial.
+- Os arquivos foram criados, mas a maioria deles (exceto arbeitnow) retorna mocks ou respostas dummy.
+- A orquestração (Circuit Breaker) atende bem a necessidade atual.
 
 ## Resultado esperado x resultado real
-- Resultado esperado atendido: inventário de scrapers realizado, identificando o estado real de implementação.
+- O catálogo dos scrapers foi documentado e conferido no código real com sucesso.
 
 ## Validação / evidência de execução
-- Listagem dos arquivos em `worker/src/scrapers/`.
-- Inspeção de código em `worker/src/scrapers/index.js`.
-- Confirmação dos stubs em `catho.js`, `gupy.js`, etc.
+- Inspeção direta dos arquivos:
+  - `worker/src/scrapers/index.js`
+  - `worker/src/scrapers/*.js`
+
+## Tratamento de erros
+- N/A
