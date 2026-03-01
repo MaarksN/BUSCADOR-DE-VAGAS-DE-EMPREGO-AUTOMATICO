@@ -89,9 +89,10 @@
   - `worker/src/scrapers/infojobs.js`
   - `worker/src/scrapers/vagas.com.js`
   - `worker/src/config.js`
-- Resumo técnico: inventário de fontes concluído, com distinção entre scrapers conectados no runtime e fontes ainda em placeholder.
-- Validação aplicada: leitura estática do `scraperMap` e conferência cruzada com `SITES` de configuração.
+- Resumo técnico: inventário dos scrapers concluído com mapeamento de 4 fontes integradas no `scraperMap` e 4 fontes declaradas em `SITES` ainda em placeholder.
+- Validação aplicada: inspeção estática da orquestração em `worker/src/scrapers/index.js` e conferência cruzada com as fontes declaradas em `worker/src/config.js`.
 - Tratamento de erros: nenhum.
+- Trava de validação: mantida em **🟡**, aguardando validação da ABA JULES para promoção a 🟢.
 - Próximo passo: **iniciar C02F01E04 (ABA CODEX)**.
 
 ## 2026-03-01 — C02F01E04 (ABA CODEX)
@@ -107,9 +108,10 @@
   - `worker/src/scoring/salary.js`
   - `worker/src/scoring/seniority.js`
   - `worker/src/scoring/boosts.js`
-- Resumo técnico: catálogo de módulos de pontuação e fórmula de ranking documentados com `scoreBreakdown`.
-- Validação aplicada: inspeção estática do pipeline de scoring e verificação dos componentes chamados em `scoreJob`.
+- Resumo técnico: mapeamento do pipeline de score concluído com composição modular e `scoreBreakdown` no resultado final.
+- Validação aplicada: inspeção estática das funções de pontuação e conferência da fórmula consolidada no agregador de score.
 - Tratamento de erros: nenhum.
+- Trava de validação: mantida em **🟡**, aguardando validação da ABA JULES para promoção a 🟢.
 - Próximo passo: **iniciar C02F01E05 (ABA CODEX)**.
 
 ## 2026-03-01 — C02F01E05 (ABA CODEX)
@@ -122,9 +124,10 @@
   - `worker/src/middleware/rateLimit.js`
   - `worker/src/handlers/metrics.js`
   - `worker/src/index.js`
-- Resumo técnico: fluxos de cache e rate limit mapeados com integração no endpoint `/search` e telemetria associada.
-- Validação aplicada: conferência dos módulos de controle e dos pontos de chamada no roteador principal.
+- Resumo técnico: cache em KV e rate limit híbrido (KV/memória) mapeados com integração explícita na rota `POST /search` e métrica de bloqueio.
+- Validação aplicada: inspeção das funções de cache/rate-limit e conferência da chamada no roteador principal do Worker.
 - Tratamento de erros: nenhum.
+- Trava de validação: mantida em **🟡**, aguardando validação da ABA JULES para promoção a 🟢.
 - Próximo passo: **iniciar C02F01E06 (ABA CODEX)**.
 
 ## 2026-03-01 — C02F01E06 (ABA CODEX)
@@ -133,12 +136,13 @@
 - Status: **🔴 → 🟡**.
 - Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E06.md`.
 - Arquivos analisados:
-  - `online-app/index.html`
-  - `online-app/config.js`
   - `online-app/app.js`
-- Resumo técnico: arquitetura funcional da UI documentada (health check, busca, favoritos, exportação e persistência local).
-- Validação aplicada: inspeção dos fluxos de eventos e integração com endpoints do Worker.
+  - `online-app/config.js`
+  - `online-app/index.html`
+- Resumo técnico: fluxo de UI documentado do health check à renderização de resultados, incluindo favoritos, ordenação e persistência local.
+- Validação aplicada: inspeção dos módulos de interface e do fluxo de construção/envio do payload para `POST /search`.
 - Tratamento de erros: nenhum.
+- Trava de validação: mantida em **🟡**, aguardando validação da ABA JULES para promoção a 🟢.
 - Próximo passo: **iniciar C02F01E07 (ABA CODEX)**.
 
 ## 2026-03-01 — C02F01E07 (ABA CODEX)
@@ -151,7 +155,8 @@
   - `chrome-extension/popup.js`
   - `chrome-extension/background.js`
   - `chrome-extension/options.js`
-- Resumo técnico: inventário da extensão realizado com mapeamento de popup, background, options e permissões.
-- Validação aplicada: inspeção estática do manifesto e dos scripts de integração com Worker/storage.
+- Resumo técnico: inventário da extensão concluído com popup/background/options, permissões e persistência via `chrome.storage`.
+- Validação aplicada: inspeção estática dos entrypoints e do fluxo de configuração/integração com Worker.
 - Tratamento de erros: nenhum.
-- Próximo passo: **aguardar validação JULES dos itens C02F01E03..E07 ou seguir para C02F01E08 conforme fila e trava de validação.**
+- Trava de validação: mantida em **🟡**, aguardando validação da ABA JULES para promoção a 🟢.
+- Próximo passo: **iniciar C02F01E08 (ABA CODEX)**.
