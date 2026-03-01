@@ -108,3 +108,52 @@
 - Tratamento de erros aplicado: N/A
 - Bloqueios encontrados: N/A
 - Próximo item da fila: C01F01E06
+
+## 2026-02-28 — C01F01E06 (ABA JULES)
+- Item executado: **C01F01E06 · Mapa de UI web**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `online-app/app.js`
+  - `online-app/config.js`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E06.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeamento da arquitetura da interface Web focada na API do Worker. Inventariadas as lógicas de busca com Retry Transiente via fetch (SEARCH_RETRY_LIMIT) e armazenamento local puro de favoritos via localStorage (FAVORITES_KEY).
+- Como foi validado: Inspeção do DOM mapping em `app.js` e constantes no `config.js`.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo passo: C01F01E07
+
+## 2026-02-28 — C01F01E07 (ABA JULES)
+- Item executado: **C01F01E07 · Mapa de extensão Chrome**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `chrome-extension/manifest.json`
+  - `chrome-extension/background.js`
+  - `chrome-extension/popup.js`
+  - `chrome-extension/options.js`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E07.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeada a arquitetura e permissões da extensão para o Chrome. O Worker é acionado de forma robusta e persistência de favoritos é interligada ativamente via API, e o sistema de notificações funciona por Service Worker.
+- Como foi validado: Inspeção dos arquivos base da extensão em `chrome-extension/`.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo passo: C01F01E08
+
+## 2026-02-28 — C01F01E08 (ABA JULES)
+- Item executado: **C01F01E08 · Mapa de deploy e ambientes**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `DEPLOY.md`
+  - `.env.example`
+  - `Makefile`
+  - `worker/wrangler.toml`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E08.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeada a infraestrutura, variavéis de ambiente (KV, tokens) e os passos descritos para implantação da stack baseada em Cloudflare Workers (com comandos Wrangler).
+- Como foi validado: Inspeção dos arquivos base do repositório relacionados ao provisionamento do worker.
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo passo: C01F01E09
