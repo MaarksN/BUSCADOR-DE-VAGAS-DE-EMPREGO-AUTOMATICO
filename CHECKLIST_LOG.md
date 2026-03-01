@@ -71,3 +71,23 @@
 - Tratamento de erros aplicado: N/A
 - Bloqueios encontrados: N/A
 - Próximo item da fila: C01F01E04
+
+## 2026-02-28 — C01F01E04 (ABA JULES)
+- Item executado: **C01F01E04 · Mapa de scoring e ranking**
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**
+- Arquivos analisados/alterados:
+  - `worker/src/scoring/index.js`
+  - `worker/src/scoring/boosts.js`
+  - `worker/src/scoring/keywords.js`
+  - `worker/src/scoring/location.js`
+  - `worker/src/scoring/recency.js`
+  - `worker/src/scoring/salary.js`
+  - `worker/src/scoring/seniority.js`
+  - `docs/governanca/EVIDENCIAS_C01_F01_E04.md`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi feito ou validado: Mapeamento de todas as funções e pesos dos algoritmos de scoring do worker. Constatado que todos os componentes (salário, senioridade, recência, localização, palavras-chave e boosts) estão implementados.
+- Como foi validado: Inspeção da pasta `worker/src/scoring`, checagem da centralização em `index.js` e análise da documentação/regras aplicadas de fato (expressões regulares, normalização, cálculos de datas).
+- Tratamento de erros aplicado: N/A
+- Bloqueios encontrados: N/A
+- Próximo item da fila: C01F01E05
