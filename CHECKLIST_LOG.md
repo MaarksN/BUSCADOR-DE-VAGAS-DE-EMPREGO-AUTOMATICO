@@ -92,3 +92,26 @@
 - Como foi validado: Revisão direta de arquivo por arquivo e conferência da coerência entre evidência documentada e implementação real no repositório.
 - Tratamento de erros aplicado: Sem inconsistências; evidência suficiente e sem regressão detectada.
 - Próximo passo: validar a Execução C01F01E02 da aba JULES.
+
+## 2026-02-28 — C01F01E02 (ABA CODEX)
+- Item executado: **C01F01E02 · Mapa de endpoints do Worker**.
+- Tipo de ação: Validação do JULES
+- Status: **🟡 → 🟢**.
+- Arquivos analisados:
+  - `docs/governanca/EVIDENCIAS_C01_F01_E02.md`
+  - `worker/src/index.js`
+  - `worker/src/handlers/config.js`
+  - `worker/src/handlers/favorites.js`
+  - `worker/src/handlers/health.js`
+  - `worker/src/handlers/metrics.js`
+  - `worker/src/handlers/normalize.js`
+  - `worker/src/handlers/sample.js`
+  - `worker/src/handlers/search.js`
+  - `worker/src/handlers/sites.js`
+  - `worker/src/handlers/validate.js`
+  - `worker/src/handlers/version.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi validado: A execução do JULES descreve corretamente o roteamento do Worker (GET/POST/DELETE), os handlers usados e os middlewares de proteção aplicados.
+- Como foi validado: Revisão prática do dispatcher em `worker/src/index.js` e confirmação de aderência com os handlers existentes em `worker/src/handlers/`.
+- Tratamento de erros aplicado: Nenhuma divergência crítica encontrada; evidência suficiente para aprovação técnica.
+- Próximo passo: iniciar a Execução C02F01E03.
