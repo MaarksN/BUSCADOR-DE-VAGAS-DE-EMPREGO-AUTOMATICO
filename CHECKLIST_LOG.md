@@ -76,3 +76,19 @@
 - Como foi validado: Inspeção estática do dispatcher HTTP em `worker/src/index.js` e conferência das exports reais em `worker/src/handlers/*.js`.
 - Tratamento de erros aplicado: Não houve erro técnico; item mantido em 🟡 por regra de validação cruzada.
 - Próximo passo: iniciar a Execução C02F01E03.
+
+## 2026-02-28 — C01F01E01 (ABA CODEX)
+- Item executado: **C01F01E01 · Mapa de runtime e entrypoints**.
+- Tipo de ação: Validação do JULES
+- Status: **🟡 → 🟢**.
+- Arquivos analisados:
+  - `docs/governanca/EVIDENCIAS_C01_F01_E01.md`
+  - `worker/src/index.js`
+  - `online-app/index.html`
+  - `chrome-extension/manifest.json`
+  - `job_finder.py`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi validado: Confirmação prática dos entrypoints mapeados pelo JULES (Worker fetch handler, frontend module script, popup/background da extensão e entrypoint Python com `main()`).
+- Como foi validado: Revisão direta de arquivo por arquivo e conferência da coerência entre evidência documentada e implementação real no repositório.
+- Tratamento de erros aplicado: Sem inconsistências; evidência suficiente e sem regressão detectada.
+- Próximo passo: validar a Execução C01F01E02 da aba JULES.
