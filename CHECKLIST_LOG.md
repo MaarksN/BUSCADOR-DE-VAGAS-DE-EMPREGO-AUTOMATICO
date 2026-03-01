@@ -72,3 +72,86 @@
 - Validação aplicada: inspeção estática das rotas em `worker/src/index.js` e conferência de existência dos handlers correspondentes.
 - Tratamento de erros: nenhum.
 - Próximo passo: **aguardar validação JULES para C02F01E02 (🟡 → 🟢) ou, na ausência de item JULES em 🟡, iniciar C02F01E03**.
+
+## 2026-03-01 — C02F01E03 (ABA CODEX)
+- Item executado: **C02F01E03 · Mapa de scrapers e fontes**.
+- Tipo de ação: **Execução própria**.
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E03.md`.
+- Arquivos analisados:
+  - `worker/src/scrapers/index.js`
+  - `worker/src/scrapers/arbeitnow.js`
+  - `worker/src/scrapers/remotivo.js`
+  - `worker/src/scrapers/indeed.js`
+  - `worker/src/scrapers/linkedin.js`
+  - `worker/src/scrapers/catho.js`
+  - `worker/src/scrapers/gupy.js`
+  - `worker/src/scrapers/infojobs.js`
+  - `worker/src/scrapers/vagas.com.js`
+  - `worker/src/config.js`
+- Resumo técnico: inventário de fontes concluído, com distinção entre scrapers conectados no runtime e fontes ainda em placeholder.
+- Validação aplicada: leitura estática do `scraperMap` e conferência cruzada com `SITES` de configuração.
+- Tratamento de erros: nenhum.
+- Próximo passo: **iniciar C02F01E04 (ABA CODEX)**.
+
+## 2026-03-01 — C02F01E04 (ABA CODEX)
+- Item executado: **C02F01E04 · Mapa de scoring e ranking**.
+- Tipo de ação: **Execução própria**.
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E04.md`.
+- Arquivos analisados:
+  - `worker/src/scoring/index.js`
+  - `worker/src/scoring/keywords.js`
+  - `worker/src/scoring/location.js`
+  - `worker/src/scoring/recency.js`
+  - `worker/src/scoring/salary.js`
+  - `worker/src/scoring/seniority.js`
+  - `worker/src/scoring/boosts.js`
+- Resumo técnico: catálogo de módulos de pontuação e fórmula de ranking documentados com `scoreBreakdown`.
+- Validação aplicada: inspeção estática do pipeline de scoring e verificação dos componentes chamados em `scoreJob`.
+- Tratamento de erros: nenhum.
+- Próximo passo: **iniciar C02F01E05 (ABA CODEX)**.
+
+## 2026-03-01 — C02F01E05 (ABA CODEX)
+- Item executado: **C02F01E05 · Mapa de cache e rate limit**.
+- Tipo de ação: **Execução própria**.
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E05.md`.
+- Arquivos analisados:
+  - `worker/src/cache/index.js`
+  - `worker/src/middleware/rateLimit.js`
+  - `worker/src/handlers/metrics.js`
+  - `worker/src/index.js`
+- Resumo técnico: fluxos de cache e rate limit mapeados com integração no endpoint `/search` e telemetria associada.
+- Validação aplicada: conferência dos módulos de controle e dos pontos de chamada no roteador principal.
+- Tratamento de erros: nenhum.
+- Próximo passo: **iniciar C02F01E06 (ABA CODEX)**.
+
+## 2026-03-01 — C02F01E06 (ABA CODEX)
+- Item executado: **C02F01E06 · Mapa de UI web**.
+- Tipo de ação: **Execução própria**.
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E06.md`.
+- Arquivos analisados:
+  - `online-app/index.html`
+  - `online-app/config.js`
+  - `online-app/app.js`
+- Resumo técnico: arquitetura funcional da UI documentada (health check, busca, favoritos, exportação e persistência local).
+- Validação aplicada: inspeção dos fluxos de eventos e integração com endpoints do Worker.
+- Tratamento de erros: nenhum.
+- Próximo passo: **iniciar C02F01E07 (ABA CODEX)**.
+
+## 2026-03-01 — C02F01E07 (ABA CODEX)
+- Item executado: **C02F01E07 · Mapa de extensão Chrome**.
+- Tipo de ação: **Execução própria**.
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E07.md`.
+- Arquivos analisados:
+  - `chrome-extension/manifest.json`
+  - `chrome-extension/popup.js`
+  - `chrome-extension/background.js`
+  - `chrome-extension/options.js`
+- Resumo técnico: inventário da extensão realizado com mapeamento de popup, background, options e permissões.
+- Validação aplicada: inspeção estática do manifesto e dos scripts de integração com Worker/storage.
+- Tratamento de erros: nenhum.
+- Próximo passo: **aguardar validação JULES dos itens C02F01E03..E07 ou seguir para C02F01E08 conforme fila e trava de validação.**
