@@ -115,3 +115,25 @@
 - Como foi validado: Revisão prática do dispatcher em `worker/src/index.js` e confirmação de aderência com os handlers existentes em `worker/src/handlers/`.
 - Tratamento de erros aplicado: Nenhuma divergência crítica encontrada; evidência suficiente para aprovação técnica.
 - Próximo passo: iniciar a Execução C02F01E03.
+
+## 2026-02-28 — C02F01E03 (ABA CODEX)
+- Item executado: **C02F01E03 · Mapa de scrapers e fontes**.
+- Tipo de ação: Execução própria
+- Status: **🔴 → 🟡**.
+- Evidências registradas em: `docs/governanca/EVIDENCIAS_C02_F01_E03.md`.
+- Arquivos analisados/alterados:
+  - `worker/src/scrapers/index.js`
+  - `worker/src/scrapers/arbeitnow.js`
+  - `worker/src/scrapers/remotivo.js`
+  - `worker/src/scrapers/indeed.js`
+  - `worker/src/scrapers/linkedin.js`
+  - `worker/src/scrapers/catho.js`
+  - `worker/src/scrapers/gupy.js`
+  - `worker/src/scrapers/infojobs.js`
+  - `worker/src/scrapers/vagas.com.js`
+  - `worker/src/config.js`
+  - `CHECKLIST_MASTER_TABS_JULES_CODEX_FIXED_DETAILED.html`
+- O que foi implementado/validado: Catálogo real dos scrapers existentes e mapeamento de integração no runtime, com identificação objetiva dos gaps entre fontes declaradas e fontes efetivamente executadas.
+- Como foi validado: Inspeção direta do `scraperMap` em `worker/src/scrapers/index.js`, conferência dos arquivos de scraper e comparação com `SITES` em `worker/src/config.js`.
+- Tratamento de erros aplicado: Não houve erro de path; divergência funcional registrada como gap técnico (4 fontes em placeholder e sem ligação no orquestrador).
+- Próximo passo: iniciar a Execução C02F01E04.
