@@ -1,14 +1,15 @@
 # EVIDÊNCIAS — C01F01E02 · Mapa de endpoints do Worker
 
 ## Objetivo
-Listar as rotas e os respectivos handlers do Worker a partir do roteamento definido em `worker/src/index.js` e implementado em `worker/src/handlers/`.
+Mapear as rotas e handlers reais do Worker (`worker/src/index.js` e `worker/src/handlers`) para auditoria e fundamentos do sistema.
 
 ## Evidências coletadas (paths + trechos)
 
-### Roteamento principal — `worker/src/index.js`
-O mapeamento de rotas e chamadas a handlers está explicitamente configurado dentro de `export default { async fetch(...) }`, no dicionário `routes`:
+### 1) Router principal e dispatch por método — `worker/src/index.js`
+- O Worker expõe `fetch(request, env)` e organiza as rotas no objeto `routes` categorizadas por método HTTP (`GET`, `POST`, `DELETE`).
+- A resolução da rota é feita pela função `matchRoute` que suporta match exato e via regex.
 
-#### Endpoints GET
+### 2) Endpoints GET mapeados
 - `GET /health` → `handleHealth`
 - `GET /version` → `handleVersion`
 - `GET /config` → `handleConfig`
@@ -17,43 +18,45 @@ O mapeamento de rotas e chamadas a handlers está explicitamente configurado den
 - `GET /metrics` → `handleMetrics`
 - `GET /favorites` → `handleGetFavorites`
 
-#### Endpoints POST
-- `POST /metrics/reset` → `handleMetricsReset` (com middleware `requireAdminAuth`)
+### 3) Endpoints POST mapeados
+- `POST /metrics/reset` → `handleMetricsReset`
 - `POST /normalize` → `handleNormalize`
 - `POST /validate` → `handleValidate`
 - `POST /favorites` → `handlePostFavorites`
-- `POST /search` → `handleSearch` (com middleware `requireJson` e `checkRateLimit`)
+- `POST /search` → `handleSearch`
 
-#### Endpoints DELETE
+### 4) Endpoints DELETE mapeados
 - `DELETE /favorites` → `handleDeleteFavorite`
-- `DELETE /favorites/:id` → `handleDeleteFavorite` (via Regex `/^\/favorites\/([^/]+)$/`)
+- `DELETE /favorites/:id` (via regex `/^\/favorites\/([^/]+)$/`) → `handleDeleteFavorite`
 
-### Handlers implementados — `worker/src/handlers/`
-Os arquivos correspondentes existem no diretório de handlers:
-- `worker/src/handlers/config.js`
-- `worker/src/handlers/favorites.js` (exporta `handleDeleteFavorite`, `handleGetFavorites`, `handlePostFavorites`)
-- `worker/src/handlers/health.js`
-- `worker/src/handlers/metrics.js` (exporta `handleMetrics`, `handleMetricsReset`)
-- `worker/src/handlers/normalize.js`
-- `worker/src/handlers/sample.js`
-- `worker/src/handlers/search.js`
-- `worker/src/handlers/sites.js`
-- `worker/src/handlers/validate.js`
-- `worker/src/handlers/version.js`
-- O arquivo `worker/src/handlers/shared.js` contém utilitários para respostas consistentes.
+### 5) Handlers mapeados em `worker/src/handlers/`
+- `health.js`
+- `version.js`
+- `config.js`
+- `sites.js`
+- `sample.js`
+- `metrics.js`
+- `normalize.js`
+- `validate.js`
+- `search.js`
+- `favorites.js`
+- `shared.js`
 
 ## Classificação do item
-- **Status anterior:** 🔴 (não implementado no checklist).
-- **Status encontrado no código:** implementação de rotas e handlers já presente.
-- **Novo status proposto:** 🟡 (implementado pelo responsável JULES; aguardando validação final do validador CODEX para 🟢).
+- **Status anterior:** 🔴
+- **Status encontrado no código:** Todos os endpoints e handlers listados e necessários para o roteamento atual existem no projeto.
+- **Novo status proposto:** 🟡 (aguardando validação CODEX).
 
 ## Gap identificado
-- Não há gap na implementação. A estrutura de roteamento e endpoints está completa e funcionando.
-- O trabalho feito é de documentação da evidência e governança do checklist para que seja atualizado corretamente.
+- Nenhum gap estrutural identificado. Os endpoints requisitados foram devidamente implementados no repositório.
 
 ## Resultado esperado x resultado real
-- Resultado esperado atendido: mapa de endpoints documentado e conferido frente ao código fonte.
+- O mapeamento dos endpoints foi criado com sucesso refletindo a realidade atual do código.
 
 ## Validação / evidência de execução
-- Inspeção e leitura do arquivo `worker/src/index.js`.
-- Listagem dos arquivos em `worker/src/handlers/`.
+- Inspeção direta dos arquivos:
+  - `worker/src/index.js`
+  - `worker/src/handlers/*.js`
+
+## Tratamento de erros
+- Não houve bloqueios ou erros na coleta das informações.
